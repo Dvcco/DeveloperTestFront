@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <br>
+            <br>
+            <div class="input-group mb-3 ">
+                <form [formGroup]="forms">
+                    <input type="text" formControlName="idEmployeeSer" class="form-control" placeholder="Buscar">
+                </form>
+                <div class="input-group-append ">
+                    <button class="btn btn-primary button-left" type="button" (click)="list()">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Salario</th>
+                <th>Años</th>
+                <th>Perfil</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>{{ item.id }}</td>
+                <td>{{ item.employee_name }}</td>
+                <td>{{ item.employee_salary | currency:'$ ' }}</td>
+                <td>{{ item.employee_age }}</td>
+                <td>{{ item.profile_image }}</td>
+            </tr>
+            <tr *ngIf="flag">
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.employee_name }}</td>
+                <td>{{ entity.employee_salary | currency:'$ '}}</td>
+                <td>{{ entity.employee_age }}</td>
+                <td>{{ entity.profile_image }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
